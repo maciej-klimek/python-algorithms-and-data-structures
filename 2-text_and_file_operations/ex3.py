@@ -2,8 +2,8 @@ import time
 
 #plik SJP.txt był za duży więc wysłałem bez
 
-def read_data():
-    f = open("SJP.txt", "r")
+def read_data(path):
+    f = open(path, "r")
     data = f.read()
     word_list = data.splitlines()
 
@@ -30,7 +30,7 @@ def check_if_in_SJP(words):
     for letter in words:
         if word in letter:
             print("Twoje slowo jest w SJP")
-            print(time.time() - start)
+            print(f"Time of search: {time.time() - start}")
             return True
     print("Twojego slowa nie ma w SJP")
     return False
@@ -38,7 +38,7 @@ def check_if_in_SJP(words):
 
 def main():
 
-    word_list = read_data()
+    word_list = read_data("SJP.txt")
     sorted_words = sort_two_dim(word_list)
     check_if_in_SJP(sorted_words)
 

@@ -1,9 +1,9 @@
 import csv
 import time as t
 
-def read_data():
+def read_data(path):
     result = []
-    with open('zadanie2.csv', 'r') as file:
+    with open(path, "r") as file:
         data = csv.reader(file)
         for line in data:
             row = []
@@ -53,7 +53,7 @@ def remove_by_prefix(data):
 
 if __name__ == "__main__":
 
-    quotes = read_data()
+    quotes = read_data("data.csv")
     sorted_quotes = sort_data(quotes)
     lower_quotes = swap_letter_case(sorted_quotes)
     modified_quotes = remove_by_prefix(lower_quotes)
